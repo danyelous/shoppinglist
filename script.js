@@ -33,8 +33,8 @@ $(document).keyup(function (e) {
     if ( $('.edititem').is(':focus') && (e.keyCode === 13) ) {
 		if( inputEntryIsValid($('.edititem').val()) ){		//Evaluate the input text
 			editedHTMLRef.html('<input class="checkbox" name="checkbox" type="checkbox"><span class="text-style">' + $('.edititem').val() + '</span><img alt="remove" src="remove-icon.png" class="remvoeimg"/>' );
+			$('.item').focus(); //To get again the focus on	
 		}
-		$('.item').focus(); //To get again the focus on
 	}
 
 });
