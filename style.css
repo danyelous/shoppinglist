@@ -35,7 +35,7 @@ html, body{
 }
 
 h1 {
-    color: #4d4d4d;
+    color: #333333;
     font-size: 3em;
     text-align: center;
 }
@@ -103,14 +103,7 @@ h1 {
     line-height: 14px;
     background: #ffffff;
 }
-.add, .submitedit{
-    border: 1px solid #71c837;
-	color: #71c837;
-}
-.edit{
-    border: 1px solid #ff7f2a;
-	color: #ff7f2a;
-}
+
 .remvoeimg {
     vertical-align: middle;
     margin-left: 25px;
@@ -132,7 +125,7 @@ p.notes {
     float: right;
     font-family: sans-serif;
     margin: 5px 15px 5px 5px;
-	color: #4d4d4d;
+	color: #333333;
 }
 
 .text-style {
