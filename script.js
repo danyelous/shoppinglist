@@ -96,7 +96,7 @@ $('.itemslist').on('dblclick', 'li', function(){
 	if( !( $('.remvoeimg').is(':visible') )){
 		editedText = $(this).text();
 		editedHTMLRef = $(this);
-		$(this).html('<input class="edititem" id="edititem" name="edititem" type="text" maxlength="50" size="65" value='+ editedText +'>')
+		$(this).html('<input class="edititem" id="edititem" name="edititem" type="text" maxlength="50" size="73" value='+ editedText +'>')
 		$('.edititem').focus();
 	}
 

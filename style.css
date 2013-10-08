@@ -24,7 +24,7 @@ html, body{
 }
 #content {
     background: #FFE85A;
-	min-height: 520px;
+	min-height: 320px;
 	margin: 50px 0px 0px 0px;
     padding: 0px 0px 20px 0px;
 }
@@ -46,8 +46,7 @@ h1 {
     border-radius: 5px 5px 5px 5px;
     color: #FFFFFF;
     font-size: 1.4em;
-    height: 30px;
-    margin: 10px 5px 10px 45px;
+    margin: -80px 5px 10px 45px;
     padding: 5px;
     text-align: left;
     width: 820px;
@@ -116,7 +115,7 @@ h1 {
     vertical-align: middle;
     margin-left: 25px;
 	display: none;
-    padding-bottom: 5px;
+    padding-bottom: 2px;
 }
 .remvoeimg:hover{
 	cursor: pointer;
@@ -140,12 +139,12 @@ p.notes {
     margin: 0px 0px 0px 15px;
 }
 #pin1 {
-    left: 1200px;
-    position: absolute;
-    top: 35px;
+    left: 900px;
+    position: relative;
+    top: -120px;
 }
 #pin2 {
-    left: 320px;
-    position: absolute;
-    top: 20px;
+    left: -60px;
+    position: relative;
+    top: -140px;
 }
