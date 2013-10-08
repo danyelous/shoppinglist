@@ -79,7 +79,7 @@ h1 {
     text-align: left;
     width: 820px;
 	list-style-position: inside;
-/*	list-style: none; */
+	list-style: none; 
 }
 .itemslist li:hover{
 	background: #FCEE95;

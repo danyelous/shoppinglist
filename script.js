@@ -8,7 +8,7 @@ var editedText = ""; //var for item edition
 var editedHTMLRef = ""; //var for item edition
 
 $('.item').focus(); //The item input box get the focus when the page loads
-$('.itemslist').sortable(); //Add sortable property to the list
+// $('.itemslist').sortable(); //Add sortable property to the list
 
 
 
