@@ -1,0 +1,151 @@
+@import url(http://fonts.googleapis.com/css?family=Crafty+Girls);
+
+
+html, body{
+	font-family: 'Crafty Girls', cursive;
+	margin: 0px;
+	padding: 0px;
+}
+
+#full-screen-background-image {
+    height: auto;
+    left: 0;
+    min-height: 100%;
+    min-width: 1024px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: -999;
+}
+
+#container {
+	width: 960px;
+	margin: 0 auto 0 auto;
+}
+#content {
+    background: #FFE85A;
+	min-height: 520px;
+	margin: 50px 0px 0px 0px;
+    padding: 0px 0px 20px 0px;
+}
+#shadow{
+	width: 960px;
+    box-shadow: 3px 3px 10px #222;
+	margin: 0px 0px 50px 0px;
+}
+
+h1 {
+    color: #4d4d4d;
+    font-size: 3em;
+    text-align: center;
+}
+
+#input{
+    background: #FCED8E;
+    border: 2px solid #E8DD54;
+    border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    font-size: 1.4em;
+    height: 30px;
+    margin: 10px 5px 10px 45px;
+    padding: 5px;
+    text-align: left;
+    width: 820px;
+}
+
+.item{
+    font-size: 1.2em;
+    margin: 0px 0px 0px 0px;
+    border: none;
+    padding: 0px 0px 0px 10px;
+    background: #FCED8E;
+}
+
+.edititem{
+    border: medium none;
+    font-size: 0.9em;
+    margin: 0px 0px 0px 0px;
+    padding: 0 0 0 10px;
+    background: #FCED8E;
+}
+
+.itemslist li {
+    border-top: 2px solid #E8DD54;
+    border-left: 2px solid #E8DD54;
+    border-radius: 5px 5px 5px 5px;
+    color: #333333;
+    font-size: 1.6em;
+    margin: 10px 5px 10px 5px;
+    padding: 2px 5px 5px 5px;
+    text-align: left;
+    width: 820px;
+	list-style-position: inside;
+/*	list-style: none; */
+}
+.itemslist li:hover{
+	background: #FCEE95;
+    transition: all 0.25s;
+	-webkit-transition: all 0.5s;
+	cursor: pointer;
+}
+
+.button{
+    border: 1px solid #333333;
+    border-radius: 21px;
+    color: #333333;
+    display: inline-block;
+    font-size: 1.4em;
+    height: 20px;
+    margin: 0px -10px 0px 20px;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    width: 20px;
+    line-height: 14px;
+    background: #ffffff;
+}
+.add, .submitedit{
+    border: 1px solid #71c837;
+	color: #71c837;
+}
+.edit{
+    border: 1px solid #ff7f2a;
+	color: #ff7f2a;
+}
+.remvoeimg {
+    vertical-align: middle;
+    margin-left: 25px;
+	display: none;
+    padding-bottom: 5px;
+}
+.remvoeimg:hover{
+	cursor: pointer;
+}
+
+#notes {
+    background: none repeat scroll 0 0 #FFE85A;
+    height: 75px;
+    width: 960px;
+    border-top: 2px #E8DD54 solid;
+	
+}
+p.notes {
+    float: right;
+    font-family: sans-serif;
+    margin: 5px 15px 5px 5px;
+	color: #4d4d4d;
+}
+
+.text-style {
+    margin: 0px 0px 0px 15px;
+}
+#pin1 {
+    left: 1200px;
+    position: absolute;
+    top: 35px;
+}
+#pin2 {
+    left: 320px;
+    position: absolute;
+    top: 20px;
+}
