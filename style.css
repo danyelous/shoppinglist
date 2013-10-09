@@ -40,16 +40,22 @@ h1 {
     text-align: center;
 }
 
+#column{
+	margin: -80px 0px 10px 0px;
+    min-height: 70px;
+}
+
 #input{
     background: #FCED8E;
     border: 2px solid #E8DD54;
     border-radius: 5px 5px 5px 5px;
     color: #FFFFFF;
     font-size: 1.4em;
-    margin: -80px 5px 10px 45px;
+    margin: 0px 5px 0px 45px;
     padding: 5px;
     text-align: left;
-    width: 820px;
+    width: 700px;
+    float: left;
 }
 
 .item{
@@ -63,7 +69,7 @@ h1 {
 .edititem{
     border: medium none;
     font-size: 0.9em;
-    margin: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 25px;
     padding: 0 0 0 10px;
     background: #FCED8E;
 }
@@ -74,7 +80,6 @@ h1 {
     border-radius: 5px 5px 5px 5px;
     color: #333333;
     font-size: 1.6em;
-    margin: 10px 5px 10px 5px;
     padding: 2px 5px 5px 5px;
     text-align: left;
     width: 820px;
@@ -86,22 +91,6 @@ h1 {
     transition: all 0.25s;
 	-webkit-transition: all 0.5s;
 	cursor: pointer;
-}
-
-.button{
-    border: 1px solid #333333;
-    border-radius: 21px;
-    color: #333333;
-    display: inline-block;
-    font-size: 1.4em;
-    height: 20px;
-    margin: 0px -10px 0px 20px;
-    padding: 5px;
-    text-align: center;
-    text-decoration: none;
-    width: 20px;
-    line-height: 14px;
-    background: #ffffff;
 }
 
 .remvoeimg {
@@ -140,4 +129,28 @@ p.notes {
     left: -60px;
     position: relative;
     top: -140px;
+}
+#remove {
+    float: left;
+    height: 30px;
+    margin: 2px 5px 5px 10px;
+    padding: 10px 5px 2px 0px;
+    width: 120px;
+    border: 2px solid #C51A12;
+    border-radius: 5px;
+    background: #FCED8E;
+	display: none;
+	cursor: pointer;
+}
+#remove:hover {
+    box-shadow: 0px 0px 2px #C51A12;
+}
+
+.removeall {
+    margin: 0px 0px 0px 0px;
+}
+
+img.removeall {
+    float: left;
+    margin: -5px 5px 0px 5px;
 }

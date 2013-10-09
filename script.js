@@ -8,8 +8,6 @@ var editedText = ""; //var for item edition
 var editedHTMLRef = ""; //var for item edition
 
 $('.item').focus(); //The item input box get the focus when the page loads
-// $('.itemslist').sortable(); //Add sortable property to the list
-
 
 
 
@@ -20,8 +18,10 @@ $('.item').focus(); //The item input box get the focus when the page loads
 $(document).keyup(function (e) {
     if ( $('.item').is(':focus') && (e.keyCode === 13) ) {
 		if( inputEntryIsValid($('.item').val()) ){		//Evaluate the input text
-			$('.itemslist').prepend('<li> <input class="checkbox" name="checkbox" type="checkbox"><span class="text-style">' + $('.item').val() +'</span><img alt="remove" src="remove-icon.png" class="remvoeimg"/></li>');		
+			var liData = '<li> <input class="checkbox" name="checkbox" type="checkbox"><span class="text-style">' + $('.item').val() +'</span></li>';
+			$(liData).prependTo('.itemslist').hide().slideDown(); 
 		}
+		
 		$('.item').val(''); //Clean the input box
     }
 	
@@ -32,7 +32,7 @@ $(document).keyup(function (e) {
 $(document).keyup(function (e) {
     if ( $('.edititem').is(':focus') && (e.keyCode === 13) ) {
 		if( inputEntryIsValid($('.edititem').val()) ){		//Evaluate the input text
-			editedHTMLRef.html('<input class="checkbox" name="checkbox" type="checkbox"><span class="text-style">' + $('.edititem').val() + '</span><img alt="remove" src="remove-icon.png" class="remvoeimg"/>' );
+			editedHTMLRef.html('<input class="checkbox" name="checkbox" type="checkbox"><span class="text-style">' + $('.edititem').val() + '</span>' ); //add new item text value
 			$('.item').focus(); //To get again the focus on	
 		}
 	}
@@ -43,36 +43,9 @@ $(document).keyup(function (e) {
 // To capture the click outside the input key when editing items
 $('.itemslist').on('focusout', '.edititem', function(){
 		if( inputEntryIsValid($('.edititem').val()) ){		//Evaluate the input text
-			editedHTMLRef.html('<input class="checkbox" name="checkbox" type="checkbox"><span class="text-style">' + $('.edititem').val() + '</span><img alt="remove" src="remove-icon.png" class="remvoeimg"/>' );
+			editedHTMLRef.html('<input class="checkbox" name="checkbox" type="checkbox"><span class="text-style">' + $('.edititem').val() + '</span>' );  //add new item text value
 			$('.item').focus(); //To get again the focus on
 		}
-		
-});
-
-
-// to capture the deletion image click
-$('.itemslist').on('click', 'img.remvoeimg', function(){
-    $(this).parent('li').remove();
-    return false;
-});
-
-
-// to capture the mouse enter event to display or not the deletion image button
-$('.itemslist').on('mouseenter', 'li', function(){
-	if( $(this).children('.checkbox').is(':checked') ){
-		$(this).children('.remvoeimg').show();
-	}
-
-    return false;
-});
-
-
-// to capture the mouse leave event to hide or not the deletion image button
-$('.itemslist').on('mouseleave', 'li', function(){
-	if( $(this).children('.checkbox').is(':checked') ){
-		$(this).children('.remvoeimg').hide();
-	}
-    return false;
 });
 
 
@@ -80,11 +53,15 @@ $('.itemslist').on('mouseleave', 'li', function(){
 $('.itemslist').on('change', '.checkbox', function(){
 	if( $(this).is(':checked') ){
 		$(this).parent('li').children('.text-style').css("text-decoration", "line-through");
-		$(this).parent('li').children('.remvoeimg').show();
+		$('#remove').fadeIn();
 	}
 	else{
 		$(this).parent('li').children('.text-style').css("text-decoration", "none");
-		$(this).parent('li').children('.remvoeimg').hide();
+		    var checked = $('.itemslist li input.checkbox:checked').length > 0; //this is to detect if at least 1 checkbox is checked
+				if (!checked){
+					$('#remove').fadeOut();
+					return false;
+				}
 	}
 
     return false;
@@ -93,14 +70,29 @@ $('.itemslist').on('change', '.checkbox', function(){
 
 // to capture the double click event to edit the item
 $('.itemslist').on('dblclick', 'li', function(){
-	if( !( $('.remvoeimg').is(':visible') )){
+	if( !( $(this).children('.checkbox').is(':checked') )){
 		editedText = $(this).text();
 		editedHTMLRef = $(this);
-		$(this).html('<input class="edititem" id="edititem" name="edititem" type="text" maxlength="50" size="73" value='+ editedText +'>')
+		$(this).html('<input class="edititem" id="edititem" name="edititem" type="text" maxlength="30" size="60" value='+ editedText +'>'); // I add the input box to edit the text
 		$('.edititem').focus();
 	}
-
 	
+});
+
+
+// To capture the click for remove all selected items
+$('#remove').on('click', '', function(){
+		$('.itemslist').children('li').each(function () {
+			if( $(this).children('.checkbox').is(':checked') ){
+				$(this).slideUp("normal", function() {
+					$(this).remove();					//to remove the item after the hide effect
+				});
+
+			}
+		});
+		
+		$('#remove').delay(750).fadeOut();
+		
 });
 
  
@@ -113,7 +105,6 @@ $('.itemslist').on('dblclick', 'li', function(){
 // ******************** Internal functions ********************
 
 function inputEntryIsValid(inputValue){ // evaluates the input entry
-
 		return ((inputValue.length > 0) && !(inputValue == ' '));
 }
 
