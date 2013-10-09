@@ -92,6 +92,7 @@ $('#remove').on('click', '', function(){
 		});
 		
 		$('#remove').delay(750).fadeOut();
+		$('.item').focus(); //To get again the focus on
 		
 });
 
