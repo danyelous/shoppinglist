@@ -93,16 +93,6 @@ h1 {
 	cursor: pointer;
 }
 
-.remvoeimg {
-    vertical-align: middle;
-    margin-left: 25px;
-	display: none;
-    padding-bottom: 2px;
-}
-.remvoeimg:hover{
-	cursor: pointer;
-}
-
 #notes {
     background: none repeat scroll 0 0 #FFE85A;
     height: 75px;
