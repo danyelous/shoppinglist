@@ -17,8 +17,9 @@ $('.item').focus(); //The item input box get the focus when the page loads
 // To capture the ENTER key when adding items
 $(document).keyup(function (e) {
     if ( $('.item').is(':focus') && (e.keyCode === 13) ) {
-		if( inputEntryIsValid($('.item').val()) ){		//Evaluate the input text
-			var liData = '<li> <input class="checkbox" name="checkbox" type="checkbox"><span class="text-style">' + $('.item').val() +'</span></li>';
+		var inputData = $('.item').val().trim();
+		if( inputEntryIsValid(inputData) ){		//Evaluate the input text
+			var liData = '<li> <input class="checkbox" name="checkbox" type="checkbox"><span class="text-style">' + inputData +'</span></li>';
 			$(liData).prependTo('.itemslist').hide().slideDown(); 
 		}
 		
@@ -31,9 +32,12 @@ $(document).keyup(function (e) {
 // To capture the ENTER key when editing items
 $(document).keyup(function (e) {
     if ( $('.edititem').is(':focus') && (e.keyCode === 13) ) {
-		if( inputEntryIsValid($('.edititem').val()) ){		//Evaluate the input text
-			editedHTMLRef.html('<input class="checkbox" name="checkbox" type="checkbox"><span class="text-style">' + $('.edititem').val() + '</span>' ); //add new item text value
+	var inputData = $('.edititem').val().trim();
+		if( inputEntryIsValid(inputData) ){		//Evaluate the input text
+			editedHTMLRef.html('<input class="checkbox" name="checkbox" type="checkbox"><span class="text-style">' + inputData + '</span>' ); //add new item text value
 			$('.item').focus(); //To get again the focus on	
+		}else{
+			editedHTMLRef.html('<input class="checkbox" name="checkbox" type="checkbox"><span class="text-style">'+ editedText +'</span>' ); //if the entry edited is not valid, keept the previous value		
 		}
 	}
 
@@ -42,9 +46,12 @@ $(document).keyup(function (e) {
 
 // To capture the click outside the input key when editing items
 $('.itemslist').on('focusout', '.edititem', function(){
-		if( inputEntryIsValid($('.edititem').val()) ){		//Evaluate the input text
-			editedHTMLRef.html('<input class="checkbox" name="checkbox" type="checkbox"><span class="text-style">' + $('.edititem').val() + '</span>' );  //add new item text value
+	var inputData = $('.edititem').val().trim();
+		if( inputEntryIsValid(inputData) ){		//Evaluate the input text
+			editedHTMLRef.html('<input class="checkbox" name="checkbox" type="checkbox"><span class="text-style">' + inputData + '</span>' );  //add new item text value
 			$('.item').focus(); //To get again the focus on
+		}else{
+			editedHTMLRef.html('<input class="checkbox" name="checkbox" type="checkbox"><span class="text-style">'+ editedText +'</span>' ); //if the entry edited is not valid, keept the previous value	
 		}
 });
 
@@ -73,7 +80,7 @@ $('.itemslist').on('dblclick', 'li', function(){
 	if( !( $(this).children('.checkbox').is(':checked') )){
 		editedText = $(this).text();
 		editedHTMLRef = $(this);
-		$(this).html('<input class="edititem" id="edititem" name="edititem" type="text" maxlength="30" size="60" value='+ editedText +'>'); // I add the input box to edit the text
+		$(this).html('<input class="edititem" id="edititem" name="edititem" type="text" maxlength="30" size="60" value="'+ editedText +'">'); // I add the input box to edit the text
 		$('.edititem').focus();
 	}
 	
@@ -106,7 +113,7 @@ $('#remove').on('click', '', function(){
 // ******************** Internal functions ********************
 
 function inputEntryIsValid(inputValue){ // evaluates the input entry
-		return ((inputValue.length > 0) && !(inputValue == ' '));
+		return ((inputValue.length > 0) && (inputValue !== ''));
 }
 
 // ******************** End Internal functions ********************
