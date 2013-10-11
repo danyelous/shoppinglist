@@ -57,7 +57,6 @@ $('.itemslist').on('change', '.checkbox', function(){
 	}
 	else{
 		$(this).parent('li').children('.text-style').css("text-decoration", "none");
-		    // var checked = $('.itemslist li input.checkbox:checked').length > 0; //this is to detect if at least 1 checkbox is checked
 		    var checked = $('.itemslist li input.checkbox:checked').length; //this is to detect if at least 1 checkbox is checked
 				if (!checked){
 					$('#remove').fadeOut();
