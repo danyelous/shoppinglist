@@ -16,7 +16,7 @@ $('.item').focus(); //The item input box get the focus when the page loads
 
 // To capture the ENTER key when adding items
 $(document).keyup(function (e) {
-    if ( $('.item').is(':focus') && (e.keyCode === 13) ) {
+    if ( $('.item').is(':focus') && (e.which === 13) ) {
 		var inputData = $('.item').val().trim();
 		if( inputEntryIsValid(inputData) ){		//Evaluate the input text
 			var liData = '<li> <input class="checkbox" name="checkbox" type="checkbox"><span class="text-style">' + inputData +'</span></li>';
@@ -31,7 +31,7 @@ $(document).keyup(function (e) {
 
 // To capture the ENTER key when editing items
 $(document).keyup(function (e) {
-    if ( $('.edititem').is(':focus') && (e.keyCode === 13) ) {
+    if ( $('.edititem').is(':focus') && (e.which === 13) ) {
 	var inputData = $('.edititem').val().trim();
 		if( inputEntryIsValid(inputData) ){		//Evaluate the input text
 			editedHTMLRef.html('<input class="checkbox" name="checkbox" type="checkbox"><span class="text-style">' + inputData + '</span>' ); //add new item text value
@@ -113,7 +113,7 @@ $('#remove').on('click', '', function(){
 // ******************** Internal functions ********************
 
 function inputEntryIsValid(inputValue){ // evaluates the input entry
-		return ((inputValue.length > 0) && (inputValue !== ''));
+		return (inputValue !== '');
 }
 
 // ******************** End Internal functions ********************
